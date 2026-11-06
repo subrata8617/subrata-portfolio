@@ -339,4 +339,31 @@ footer {
     transition: background 0.4s ease, color 0.4s ease, border-color 0.4s ease;
 }
 
+/* Mobile Navigation Scroll Fix */
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 170px;
+}
+
+#home,
+#about,
+#services,
+#contact {
+    scroll-margin-top: 130px;
+}
+
+@media (max-width: 390px) {
+    html {
+        scroll-padding-top: 170px;
+    }
+
+    #home,
+    #about,
+    #services,
+    #contact {
+        scroll-margin-top: 170px;
+    }
+}
+
 }
