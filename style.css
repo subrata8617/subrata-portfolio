@@ -1,0 +1,342 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background: #0f172a;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ea580c;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ea580c;
+}
+
+/* Light and Dark Mode Toggle Switch */
+
+.theme-checkbox {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.theme-switch {
+    width: 56px;
+    height: 30px;
+    padding: 4px;
+    border-radius: 30px;
+    background: #cbd5e1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    transition: 0.3s ease;
+}
+
+.switch-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    transition: 0.3s ease;
+}
+
+.switch-icon::before {
+    content: "☀️";
+}
+
+/* Checked = Dark mode */
+#theme-toggle:checked ~ .navbar .theme-switch {
+    background: #3b82f6;
+}
+
+#theme-toggle:checked ~ .navbar .switch-icon {
+    transform: translateX(26px);
+}
+
+#theme-toggle:checked ~ .navbar .switch-icon::before {
+    content: "🌙";
+}
+
+/* Keyboard accessibility */
+#theme-toggle:focus-visible ~ .navbar .theme-switch {
+    outline: 2px solid #ea580c;
+    outline-offset: 2px;
+}
+
+/* Dark Mode Colors: Midnight Navy + Electric Blue + Lavender */
+
+body:has(#theme-toggle:checked) {
+    background: #0a0f24;
+    color: #c7d2fe;
+}
+
+/* Navbar */
+#theme-toggle:checked ~ .navbar {
+    background: #070b1c;
+    border-bottom: 1px solid rgba(96, 165, 250, 0.25);
+}
+
+#theme-toggle:checked ~ .navbar .logo {
+    color: #60a5fa;
+}
+
+#theme-toggle:checked ~ .navbar .nav-links a {
+    color: #c4b5fd;
+}
+
+#theme-toggle:checked ~ .navbar .nav-links a:hover {
+    color: #60a5fa;
+}
+
+/* Hero */
+#theme-toggle:checked ~ .hero {
+    background: linear-gradient(135deg, #0a0f24 0%, #1d2a8a 55%, #3b82f6 100%);
+}
+
+#theme-toggle:checked ~ .hero p {
+    color: #ddd6fe;
+}
+
+#theme-toggle:checked ~ .hero .btn {
+    background: #3b82f6;
+    box-shadow: 0 0 18px rgba(59, 130, 246, 0.55);
+}
+
+#theme-toggle:checked ~ .hero .btn:hover {
+    background: #60a5fa;
+}
+
+/* Sections */
+#theme-toggle:checked ~ .container {
+    background: #0a0f24;
+    color: #c7d2fe;
+}
+
+#theme-toggle:checked ~ .container.alt-bg {
+    background: #111936;
+}
+
+#theme-toggle:checked ~ .container h2 {
+    color: #c4b5fd;
+}
+
+#theme-toggle:checked ~ .container p {
+    color: #c7d2fe;
+}
+
+#theme-toggle:checked ~ .container b {
+    color: #93c5fd;
+}
+
+/* Service cards */
+#theme-toggle:checked ~ .container .service-card {
+    background: #151d42;
+    border: 1px solid rgba(139, 156, 255, 0.25);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+#theme-toggle:checked ~ .container .service-card:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 0 22px rgba(59, 130, 246, 0.35);
+}
+
+#theme-toggle:checked ~ .container .service-card h3 {
+    color: #ddd6fe;
+}
+
+#theme-toggle:checked ~ .container .service-card p {
+    color: #c7d2fe;
+}
+
+/* Footer */
+#theme-toggle:checked ~ footer {
+    background: #060918;
+    border-top: 1px solid rgba(96, 165, 250, 0.25);
+    color: #c4b5fd;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+    padding: 6rem 2rem;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    display: inline-block;
+    background: #ea580c;
+    color: white;
+    padding: 0.75rem 2rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #c2410c;
+}
+
+/* Container Sections */
+.container {
+    padding: 4rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.container.alt-bg {
+    background: #f8fafc;
+}
+
+.container h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #0f172a;
+}
+
+.container p {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 1rem;
+}
+
+/* Services Grid (CSS Grid) */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.service-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-card h3 {
+    color: #0f172a;
+    margin-bottom: 1rem;
+}
+
+/* Contact Section */
+#contact {
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    background: #0f172a;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
+
+/* Mobile Responsive (Media Queries) */
+@media (max-width: 768px) {
+    .nav-links {
+        gap: 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .container h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .hero {
+        padding: 3rem 1rem;
+    }
+    
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+ 
+body,
+.navbar,
+.hero,
+.container,
+.service-card,
+footer {
+    transition: background 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+}
+
+}
